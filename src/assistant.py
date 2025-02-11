@@ -22,7 +22,7 @@ class Assistant:
             try:
                 # user_audio = self.recognize_engine.listen()
                 # if not user_audio:
-                #     continue ------ Раскомментируй код, при тесте - это нужно для микрофона
+                #     continue ------ Раскомментируй код, при тесте - это нужно для микрофона, а 26 строчку - удали
                 user_audio = input()
                 print(f"Вы сказали: '{user_audio}'. Веду обработку")
 

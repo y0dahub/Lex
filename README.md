@@ -1,5 +1,7 @@
-pip -r install requirements.txt
+python -m venv venv
 
 venv\Scripts\activate
 
-python /src/main.py
+pip install -r requirements.txt
+
+python .\src\main.py

@@ -1,6 +1,5 @@
 import pyttsx3
 
-
 class TextToSpeech:
     def __init__(self, language: str):
         self.language = language
@@ -13,19 +12,21 @@ class TextToSpeech:
 
     def check_language(self):
         voices = self.engine.getProperty("voices")
-        language = self.languages_full[self.language]
+        language_ = self.languages_full.get(self.language)
 
         for voice in voices:
-            if language in voice.name:
-                return True
-            else:
-                return False
+            if language_ in voice.name:
+                return voice.id
+            
+        return None
 
     def say(self, text):
-        if not self.check_language():
-            raise ValueError("Язык не поддерживается. Для того, чтобы исправить это -> https://тут_ссылка_на_статью.com")
-        else:
-            self.engine.setProperty("voice", self.languages_full[self.language])
+        voice_id = self.check_language()
+
+        if voice_id:
+            self.engine.setProperty("voice", voice_id)
             self.engine.say(text)
             self.engine.runAndWait()
+        else:
+            raise ValueError("Language not found")
 

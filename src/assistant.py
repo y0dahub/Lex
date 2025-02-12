@@ -5,7 +5,7 @@ from commands import Commands
 class Assistant:
     def __init__(self):
         self.recognize_engine = SpeechRecognition()
-        self.speak_engine = TextToSpeech(language="en")
+        self.speak_engine = TextToSpeech(language="ru")
         self.commnad_engine = Commands()
 
         # self.config = config
@@ -16,7 +16,7 @@ class Assistant:
         # ]
 
     def start(self):
-        self.speak_engine.say("Привет! Чем могу помочь?")
+        self.speak_engine.say("hello")
 
         while self.is_listening:
             try:

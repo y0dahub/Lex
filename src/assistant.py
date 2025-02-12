@@ -1,6 +1,6 @@
 from speech_rec import SpeechRecognition
 from text_to_speech import TextToSpeech
-from commads import Commands
+from commands import Commands
 
 class Assistant:
     def __init__(self):

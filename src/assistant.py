@@ -8,25 +8,16 @@ class Assistant:
         self.speak_engine = TextToSpeech(language="ru")
         self.commnad_engine = Commands()
 
-        # self.config = config
         self.is_listening = True
 
-        # self.api_keys = [
-        #     config.get("API_KEYS"),
-        # ]
-
     def start(self):
-        self.speak_engine.say("hello")
-
         while self.is_listening:
             try:
-                # user_audio = self.recognize_engine.listen()
-                # if not user_audio:
-                #     continue ------ Раскомментируй код, при тесте - это нужно для микрофона, а 26 строчку - удали
-                user_audio = input()
-                print(f"Вы сказали: '{user_audio}'. Веду обработку")
+                user_command = self.recognize_engine.recognize()
+                if not user_command:
+                    continue
 
-                self.commnad_engine.hanlde_command(user_audio)
+                self.commnad_engine.handle_command(user_command)
 
             except Exception as _err:
                 print(f"Произошла ошибка: ({_err}).\nПопробуйте перезапустить программу.\nЕсли это не помогло, то напишите в техподдержку.")

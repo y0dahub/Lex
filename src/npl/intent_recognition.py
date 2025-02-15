@@ -1,21 +1,24 @@
+from transformers import pipeline, AutoConfig
+
 class IntentRecognition:
+    def __init__(self):
+        self.model_name = "DeepPavlov/rubert-base-cased"
+        self.config = AutoConfig.from_pretrained(self.model_name)
+
+        self.classifier = pipeline("zero-shot-classification", model=self.model_name, config=self.config)
+
+
     def get_intent(self, text):
-        """_summary_
+        """Распознает намерение по входному тексту.
 
         Args:
             text (str): Текст, который нужно распознать
 
         Returns:
-            intent (str): Возвращает классификацию функции, которую нужно выполнить. НА АНГЛ!!
+            intent (str): Возвращает классификацию функции, которую нужно выполнить.
         """
-        intents = {
-            "weather": ["погода", "температура"],
-            "time": ["сколько время", "который час"],
-            "greeting": ["привет", "здравствуй"]
-        }
+        candidate_labels = ["температура", "время", "приветствие", "неизвестно", "запуск программы", "прощание"]
 
-        for intent, keywords in intents.items():
-            if any(word in text.lower() for word in keywords):
-                return intent
-            
-        return "unknown"
+        result = self.classifier(text, candidate_labels=candidate_labels)
+
+        return result['labels'][0]

@@ -25,6 +25,7 @@ class TextToSpeech:
 
         if voice_id:
             self.engine.setProperty("voice", voice_id)
+            self.engine.setProperty("rate", 150)
             self.engine.say(text)
             self.engine.runAndWait()
         else:

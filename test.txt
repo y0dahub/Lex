@@ -1,0 +1,14 @@
+Список входных аудиоустройств:
+ID 0: Microsoft Sound Mapper - Input
+ID 1: Microphone (fifine Headset)
+ID 2: Microphone (USB PnP Audio Devic)
+ID 7: Primary Sound Capture Driver
+ID 8: Microphone (fifine Headset)
+ID 9: Microphone (USB PnP Audio Device)
+ID 17: Microphone (USB PnP Audio Device)
+ID 18: Microphone (fifine Headset)
+ID 19: Microphone (Realtek HD Audio Mic input)
+ID 22: Stereo Mix (Realtek HD Audio Stereo input)
+ID 23: Line In (Realtek HD Audio Line input)
+ID 25: Microphone (USB PnP Audio Device)
+ID 27: Microphone (fifine Headset)
